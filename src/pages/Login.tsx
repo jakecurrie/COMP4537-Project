@@ -31,7 +31,7 @@ export default function Login() {
           <div className="mx-auto h-12 w-12 bg-indigo-100 rounded-full flex items-center justify-center">
             <Smile className="h-8 w-8 text-indigo-600" />
           </div>
-          <h2 className="mt-4 text-3xl font-bold text-gray-900">Welcome Back</h2>
+          <h2 className="mt-4 text-3xl font-bold text-gray-900">Welcome Back to Mood Buddy</h2>
           <p className="mt-2 text-gray-600">Sign in to continue</p>
         </div>
 

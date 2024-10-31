@@ -30,7 +30,7 @@ export default function Register() {
             <Sparkles className="h-8 w-8 text-indigo-600" />
           </div>
           <h2 className="mt-4 text-3xl font-bold text-gray-900">Join Us</h2>
-          <p className="mt-2 text-gray-600">Start your journey to better moods</p>
+          <p className="mt-2 text-gray-600">Start your journey with Mood Buddy</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
