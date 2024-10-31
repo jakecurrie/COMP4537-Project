@@ -44,6 +44,10 @@ export default function Dashboard() {
     e.preventDefault();
     if (!input.trim()) return;
 
+    if (!incrementApiCalls()) {
+      return;
+    }
+
     const userMessage = { id: Date.now(), text: input, isUser: true };
     setMessages(prev => [...prev, userMessage]);
     setInput('');
@@ -61,9 +65,6 @@ export default function Dashboard() {
         text: response, 
         isUser: false 
       }]);
-
-      // Increment API call count
-      incrementApiCalls();
     } catch (error) {
       toast.error('Failed to get response');
     } finally {

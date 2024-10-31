@@ -103,10 +103,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  
   const incrementApiCalls = () => {
     if (user) {
+      if (user.apiCalls >= 20) {
+        toast.error('API call limit reached. Please buy the premium version.');
+        return false;
+      }
       setUser({ ...user, apiCalls: user.apiCalls + 1 });
+      return true;
     }
+    return false;
   };
 
   const value: AuthContextType = {
