@@ -14,6 +14,7 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string, name: string) => Promise<void>;
   logout: () => Promise<void>;
+  incrementApiCalls: () => void;
   isLoading: boolean;
 }
 
@@ -102,12 +103,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const incrementApiCalls = () => {
+    if (user) {
+      setUser({ ...user, apiCalls: user.apiCalls + 1 });
+    }
+  };
+
   const value: AuthContextType = {
     user,
     isAuthenticated,
     login,
     register,
     logout,
+    incrementApiCalls,
     isLoading,
   };
 

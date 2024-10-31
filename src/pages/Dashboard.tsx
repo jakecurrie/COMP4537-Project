@@ -16,7 +16,7 @@ export default function Dashboard() {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const { user, logout } = useAuth();
+  const { user, logout, incrementApiCalls } = useAuth();
   const navigate = useNavigate();
 
   const scrollToBottom = () => {
@@ -61,6 +61,9 @@ export default function Dashboard() {
         text: response, 
         isUser: false 
       }]);
+
+      // Increment API call count
+      incrementApiCalls();
     } catch (error) {
       toast.error('Failed to get response');
     } finally {
